@@ -13,10 +13,6 @@ app.secret_key = 'peefer'
 api = Api(app)
 
 
-@app.before_first_request #flask decorator
-def create_tables():
-    db.create_all()
-
 jwt = JWT(app, authenticate, identity)  # creates new end point /auth
 
 api.add_resource(Store, '/store/<string:name>')
